@@ -1,0 +1,47 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title style="text-align: center">{{ 'Essen' | translate }}</ion-title>
+
+    
+  
+<ion-buttons end>
+      <button ion-button icon-only>
+        <ion-icon name="add" color="danger"></ion-icon>
+      </button>
+    </ion-buttons>
+    </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+  <div #map id="map"></div>
+  <ion-card style="width: 90%;height: 130px; position: absolute;top: 0;right: 0;bottom: 0;left: 0;margin-left: 5%;border-radius: 20px" id="headerbar">
+  <ion-card-header>
+  	<ion-row align-items-center>
+     
+        <ion-col col-auto>
+          <img src="assets/img/1.jpg" class="thumb-md" style="border-radius: 50%;display: inline-block;width: 90px">
+        </ion-col>
+        <ion-col>
+            <ion-row align-items-center>
+          <div align="center">
+            <div class="text-lg" style="font-size: 20px;margin-left: 5px">Jiang.Y</div>
+          </div>
+            </ion-row>
+          <ion-row align-items-center>
+            <ion-col>
+        <button ion-button color="danger" round style="width: 78px;">Profile</button>
+      </ion-col>
+      <ion-col>
+        <button ion-button color="danger" round style="width: 80px;" (click)="onRequest()">Request</button>
+        </ion-col>
+        </ion-row>
+        </ion-col>
+      
+      </ion-row>
+  </ion-card-header>
+  <ion-card-content>
+  </ion-card-content>
+</ion-card>
+</ion-content>

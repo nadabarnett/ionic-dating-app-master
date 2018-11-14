@@ -1,0 +1,12 @@
+<div>
+  <div class="color-black font-bold text-sm m-b pull-left">1142 Instagram Photos</div>
+  <div class="insta-pager">
+    <div class="bullet" *ngFor="let bullet of slideImages; let i = index" [ngClass]="{active: i == currentSlideIndex}"></div>
+  </div>
+</div>
+
+<ion-slides class="insta-slides" (ionSlideDidChange)="slideChanged()">
+  <ion-slide *ngFor="let slide of slideImages; let i = index">
+    <div *ngFor="let item of slide.page" [style.backgroundImage]="'url(' + item.url + ')'" class="div-img r-3x"></div>
+  </ion-slide>
+</ion-slides>

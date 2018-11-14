@@ -1,0 +1,49 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{ 'LOGIN_TITLE' | translate }}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+    <div style="width: 100px;height: 100px;margin:20% auto">
+  <img src="assets/img/icon.png" style="width: 100%;height: 100%">
+    <p style="text-align: center;color: #d96a62"><b>JUST HAPPENED</b></p>
+
+</div>
+</ion-content>
+<ion-footer>
+
+  <ion-card style="margin:auto;">
+      <ion-list>
+        <ion-item>
+          <ion-label floating><ion-icon name='person'></ion-icon> {{ 'Username' | translate }}</ion-label>
+          <ion-input type="email" [(ngModel)]="accountuser.email" name="email"></ion-input>
+        </ion-item>
+
+        <!--
+        Want to use a Username instead of an Email? Here you go:
+
+        <ion-item>
+          <ion-label floating>{{ 'USERNAME' | translate }}</ion-label>
+          <ion-input type="text" [(ngModel)]="account.username" name="username"></ion-input>
+        </ion-item>
+        -->
+
+        <ion-item>
+          <ion-label floating><ion-icon name='lock'></ion-icon> {{ 'Password' | translate }}</ion-label>
+          <ion-input type="password" [(ngModel)]="accountuser.password" name="password"></ion-input>
+        </ion-item>
+
+        <div padding>
+          <button type="submit" ion-button color="danger" style="width: 85%;margin-left: 7%;margin-right: 7%" round (click)="doLogin(accountuser)">{{ 'LOGIN' | translate }}</button>
+          <p style="text-align: center"><b>Forget password?</b></p>
+
+        </div>
+
+      </ion-list>
+  </ion-card>
+  <p style="text-align: center">Don't have an account? Tap to <b (click)="signup()">SignUP</b></p>
+
+</ion-footer>

@@ -1,0 +1,32 @@
+<ion-header>
+
+  <ion-navbar> 
+    <ion-title style="text-align: center">{{ 'Categories' | translate }}</ion-title>
+
+    
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content class="bodycolor">
+
+      <ion-slides  class="myslides" slider="data.slider"  centeredSlides effect="coverflow" slidesPerView="1.5" speed="400">
+        <ion-slide class="myslide">
+          <img src="assets/img/votematch.jpg">
+          <div class="card-title">Vote and Match</div>
+        </ion-slide>
+        <ion-slide class="myslide" >
+ <img src="assets/img/casualmeetup.jpg" (click)="openItem(2)">
+           <div class="card-title">Casual Meetup</div>
+
+        </ion-slide>
+        <ion-slide class="myslide">
+ <img src="assets/img/relationship.jpg" (click)="openItem(3)">
+           <div class="card-title">Relationship</div>
+
+        </ion-slide>
+
+      </ion-slides>
+        
+
+</ion-content>

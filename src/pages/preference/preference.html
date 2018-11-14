@@ -1,0 +1,152 @@
+<ion-header mode="md" >
+  <ion-navbar> 
+    <ion-title style="text-align: center;margin-top: 10px">{{ 'Preference' | translate }}</ion-title>
+
+    
+  </ion-navbar>
+  <ion-toolbar mode="md" color="blue">
+    <ion-segment  #segments  mode="md" [(ngModel)]="page" color="positive" calss="font-bold">
+        <ion-segment-button value="0"  (click)="selectedTab(0)">
+              <button ion-button round class="btn-gd m-b" (click)="onvmSave()" style="width: 100%;height:25px;font-size: 8px">      VOTE & MEETUP
+              </button>
+        </ion-segment-button>
+        <ion-segment-button value="1"  (click)="selectedTab(1)">
+            <button ion-button round color="pre_btnback" class="btn-gd m-b" (click)="onvmSave()" style="width: 100%;height:25px;font-size: 8px">      CASUAL MEETUP
+              </button>
+        </ion-segment-button>
+        <ion-segment-button value="2"  (click)="selectedTab(2)">
+            <button ion-button round  color="pre_btnback" class="btn-gd m-b" (click)="onvmSave()" style="width: 100%;height:25px;font-size: 8px">      RELATIONSHIP
+              </button>
+        </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+<ion-content padding>
+    <ion-slides #slider (ionSlideDidChange)="slideChanged()">
+        <ion-slide>
+          <ion-list>
+            
+            <ion-item class="line-merge-down" no-lines style="font-size: 14px">
+              Interested in
+             
+            </ion-item>
+            <ion-item>
+               <div layout vertical center center-center>
+                <div>
+                  <button ion-button round  color="buttonclr"  style="width: 140px;height: 30px;font-size: 14px">Female</button>
+                  <button ion-button round  color="buttonclr" style="width: 140px;height: 30px;font-size: 14px">Male</button>
+                </div>
+                </div>
+            </ion-item>
+            <ion-item class="line-merge-down" no-lines style="font-size: 14px">
+              Distance Preference
+              <ion-note item-end>
+                {{vm_distancepre}}km
+              </ion-note>
+            </ion-item>
+            <ion-item no-lines>
+              <ion-range min="2" pin="true" [(ngModel)]="vm_distancepre" color="primary"></ion-range>
+            </ion-item>
+                      <ion-item class="line-merge-down" no-lines style="font-size: 14px">
+              Age Preference
+              <ion-note item-end>
+                {{vm_agepre.lower}}-</ion-note>
+              <ion-note item-end style="margin-left: -7px">{{vm_agepre.upper}}
+              </ion-note>
+            </ion-item>
+            <ion-item no-lines>
+              <ion-range min="2" dualKnobs="true" pin="true"  min="16" max="60"  [(ngModel)]="vm_agepre" color="primary"></ion-range>
+            </ion-item>
+            <ion-item no-lines>
+  <div class="h-full" layout vertical center center-center>
+      <button ion-button round class="btn-gd m-b" (click)="onvmSave()" style="width: 100%;height:30px">Save</button>
+    </div>            </ion-item>
+          </ion-list>
+        </ion-slide>
+        <ion-slide>
+          <ion-list>
+        <ion-item item-end>
+              <button ion-button item-end color="danger" (click)="oncasualSave()">SAVE</button>
+            </ion-item>
+            <ion-item class="line-merge-down">
+              Interested in
+              <ion-note item-end>
+                  <button ion-item>
+                    <ion-icon name="man" style="font-size: 50px;color:red;font-style: bold"></ion-icon>
+                  </button>
+                  
+              </ion-note>
+              <ion-note item-end>
+                <button ion-item>
+                    <ion-icon name="woman" style="font-size: 50px;color:red;font-style: bold;"></ion-icon>
+                  </button>
+              </ion-note>
+            </ion-item>
+            <ion-item class="line-merge-down">
+              Distance Preference
+              <ion-note item-end>
+                {{casual_distancepre}}km
+              </ion-note>
+            </ion-item>
+            <ion-item>
+              <ion-range min="2" pin="true" max="160" [(ngModel)]="casual_distancepre" color="danger"></ion-range>
+            </ion-item>
+                      <ion-item class="line-merge-down">
+              Age Preference
+              <ion-note item-end>
+                {{casual_agepre.lower}}years
+              </ion-note>
+              <ion-note item-end>
+                ~{{casual_agepre.upper}}years
+              </ion-note>
+            </ion-item>
+            <ion-item>
+              <ion-range min="2" dualKnobs="true" pin="true" min="16" max="60" [(ngModel)]="casual_agepre" color="danger"></ion-range>
+            </ion-item>
+          </ion-list>
+        </ion-slide>
+        <ion-slide>
+          <ion-list>
+            <ion-item item-end>
+              <button ion-button item-end color="danger" (click)="onrelationSave()">SAVE</button>
+            </ion-item>
+            <ion-item class="line-merge-down">
+              Interested in
+              <ion-note item-end>
+                  <button ion-item>
+                    <ion-icon name="man" style="font-size: 50px;color:red;font-style: bold"></ion-icon>
+                  </button>
+                  
+              </ion-note>
+              <ion-note item-end>
+                <button ion-item>
+                    <ion-icon name="woman" style="font-size: 50px;color:red;font-style: bold;"></ion-icon>
+                  </button>
+              </ion-note>
+            </ion-item>
+            <ion-item class="line-merge-down">
+            Maximum Distance
+            <ion-note item-end>
+              {{relation_distancepre}}km
+            </ion-note>
+          </ion-item>
+          <ion-item>
+            <ion-range max="160" [(ngModel)]="relation_distancepre" color="danger"></ion-range>
+          </ion-item>
+                <ion-item class="line-merge-down">
+              Age Preference
+              <ion-note item-end>
+                {{relation_agepre.lower}}years
+              </ion-note>
+              <ion-note item-end>
+                ~{{relation_agepre.upper}}years
+              </ion-note>
+            </ion-item>
+            <ion-item>
+              <ion-range min="2" dualKnobs="true" pin="true" min="16" max="60" [(ngModel)]="relation_agepre" color="danger"></ion-range>
+            </ion-item>
+          </ion-list>
+        </ion-slide>
+       
+    </ion-slides>
+</ion-content>

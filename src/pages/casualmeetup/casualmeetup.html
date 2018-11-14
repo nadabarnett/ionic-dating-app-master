@@ -1,0 +1,43 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title style="text-align: center">{{ 'Casual Meetup' | translate }}</ion-title>
+
+    
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content class="card-background-page">
+   <div style="margin-top: 30%;height: 60%;">
+        <ion-slides  slider="data.slider" style="border-radius: 10px;" effect="coverflow" centeredSlides= "true" slidesPerView="auto" speed="400" space-between="-5">
+          <ion-slide class="myslide" style="border-radius: 10px;width:80%;" >
+            <img src="assets/img/Essen.jpg" style="width: 100%;height: 100%">
+            <div class="card-title">Essen</div>
+          </ion-slide>
+          <ion-slide class="myslide"  style="border-radius: 10px;width:80%;">
+          <img src="assets/img/Trinken.jpg" style="width: 100%;height: 100%" (click)="openItem(2)">
+          <div class="card-title">Trinken</div>
+
+          </ion-slide>
+          <ion-slide class="myslide"  style="border-radius: 10px;width:80%; ">
+            <img src="assets/img/Kino.jpg" style="width: 100%;height: 100%">
+            <div class="card-title">Kino</div>
+
+          </ion-slide>
+          <ion-slide class="myslide"  style="border-radius: 10px;width:80%; ">
+            <img src="assets/img/Fitness.jpg" style="width: 100%;height: 100%">
+            <div class="card-title">Fitness</div>
+
+          </ion-slide>
+          <ion-slide class="myslide"  style="border-radius: 10px;width:80%; ">
+            <img src="assets/img/Aktivitaten.jpg" style="width: 100%;height: 100%">
+            <div class="card-title">Aktivitäten</div>
+
+          </ion-slide>
+
+        </ion-slides>
+    </div>
+
+
+</ion-content>

@@ -1,0 +1,43 @@
+page-profile-edit {
+  .profile-images-edit {
+    padding: 5px;
+    .div-img {
+      padding-bottom: 99%;
+      background-color: #e0dfe5;
+    }
+  }
+  #marginarea {
+    background-color: #f1f0f0;
+    height: 10px;
+  }
+  .profile-image {
+    position: relative;
+    width: calc(100% / 3 - 10px);
+    margin: 5px;
+    float: left;
+    &:first-child {
+      width: calc(2 * 100% / 3 - 10px);
+    }
+    .btn-edit {
+      position: absolute;
+      right: -8px;
+      bottom: -8px;
+      background-color: color($colors, bg);
+      font-size: 12px;
+      font-weight: 700;
+      width: 28px;
+      height: 28px;
+      border-radius: 999em;
+    }
+  }
+
+  .label-special {
+    background-color: color($colors, danger);
+    border-radius: 999em;
+    text-transform: none;
+    padding: 1px 6px;
+    letter-spacing: 0;
+    font-size: 9px;
+    color: #fff;
+  }
+}

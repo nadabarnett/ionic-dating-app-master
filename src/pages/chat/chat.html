@@ -1,0 +1,70 @@
+<ion-header no-border class="header-shadow">
+  <ion-navbar color="white">
+    <ion-title>
+      <div class="avatar-title">
+<!--         <demo-avatar [sizeClass]="'thumb-xs'"></demo-avatar>
+ -->        <div class="avatar-name">Tindie</div>
+      </div>
+    </ion-title>
+
+    
+  </ion-navbar>
+</ion-header>
+
+<ion-content #content padding>
+  <div class="wrapper text-center h-full" layout vertical center center-center *ngIf="isNewMatch && messages.length == 0">
+    <div>
+      <div class="m-b">
+        <div class="text-lg">You matched with <b>Tindie</b></div>
+        <div>3 hours ago</div>
+      </div>
+      <div class="m-b">
+<!--         <demo-avatar [sizeClass]="'thumb-xl'"></demo-avatar>
+ -->      </div>
+      <div class="text-lg">Are your hands tied or something?</div>
+    </div>
+  </div>
+
+  <div class="chat-list" *ngIf="!isNewMatch || messages.length">
+    <div class="chat-item" *ngFor="let item of messages" [ngClass]="{'me': item.isMe}">
+      <div class="chat-timestamp">
+        {{item.timestamp}}
+      </div>
+
+      <div class="chat-item-content">
+        <div class="chat-avatar" *ngIf="!item.isMe">
+          <img [src]="item.avatar">
+        </div>
+
+        <div class="chat-item-bubble" [ngClass]="{'bubble-image': item.type == 'image'}">
+          <i class="icon-tail"></i>
+          <div class="chat-body" *ngIf="item.type !== 'image'" [innerHtml]="item.body "></div>
+          <img [src]="item.body" *ngIf="item.type == 'image'">
+        </div>
+
+        <div class="chat-item-reaction" *ngIf="!item.isMe && item.type == 'image'">
+          <ion-icon name="md-heart-outline" class="text-muted"></ion-icon>
+        </div>
+      </div>
+
+      <div class="chat-item-status" *ngIf="item.isMe">Sent</div>
+    </div>
+  </div>
+</ion-content>
+
+<ion-footer no-border >
+
+  <ion-toolbar class="has-elastic-input giphy-input" *ngIf="!showGiphy">
+    <ion-buttons left align-self-bottom class="stick-bottom">
+      <button ion-button small class="button-gif" (click)="toggleGiphy()">
+        GIF
+      </button>
+    </ion-buttons>
+    <ion-textarea fz-elastic [(ngModel)]="typingMessage" placeholder="Type a message"></ion-textarea>
+    <ion-buttons right class="stick-bottom button-submit">
+      <button type="submit" [disabled]="typingMessage.length == 0" ion-button small color="dark" (tap)="sendText(typingMessage)">
+        Send
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>

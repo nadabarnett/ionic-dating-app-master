@@ -1,0 +1,67 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{ 'SIGNUP_TITLE' | translate }}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-footer style="margin-top: 20%;">
+    <ion-list>
+
+      <ion-item>
+        <ion-label floating><ion-icon name='mail'></ion-icon> {{ 'Email' | translate }}</ion-label>
+        <ion-input type="text"  [(ngModel)]="accountuser.email"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating><ion-icon name='person'></ion-icon> {{ 'First Name' | translate }}</ion-label>
+        <ion-input type="text" [(ngModel)]="accountuser.name"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating><ion-icon name='medal'></ion-icon> {{ 'Profession' | translate }}</ion-label>
+        <ion-input type="text" [(ngModel)]="accountuser.profession"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating><ion-icon name='calendar'></ion-icon> {{ 'Birthday' | translate }}</ion-label>
+        <ion-input type="text" [(ngModel)]="accountuser.birthday"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating><ion-icon name='lock'></ion-icon> {{ 'Password' | translate }}</ion-label>
+        <ion-input type="Password" [(ngModel)]="accountuser.password" ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating><ion-icon name='lock'></ion-icon> {{ 'Confirm Password' | translate }}</ion-label>
+        <ion-input type="Password" ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label><ion-icon name='contacts'></ion-icon> Gender</ion-label>
+        <ion-select  name="sex" [(ngModel)]="accountuser.gender">
+          <ion-option value="f">Female</ion-option>
+          <ion-option value="m">Male</ion-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+          <ion-checkbox  color="secondary" name="agreeterm"></ion-checkbox>
+          <ion-label><p>I am agree to the Terms&Agreements and</p><p> Privacy Policy</p></ion-label>
+      </ion-item>
+      <!--
+      Want to add a Username? Here you go:
+
+      <ion-item>
+        <ion-label floating>Username</ion-label>
+        <ion-input type="text" [(ngModel)]="account.username" name="username"></ion-input>
+      </ion-item>
+      -->
+
+
+      <div padding>
+        <button button ion-button color="danger" style="width: 85%;margin-left: 7%;margin-right: 7%" round (click)="doSignup()">{{ 'SIGNUP_BUTTON' | translate }}</button>
+      </div>
+
+    </ion-list>
+
+
+    <p style="text-align: center">Already have an account? Tap to <b (click)="login()">Login</b></p>
+
+</ion-footer>

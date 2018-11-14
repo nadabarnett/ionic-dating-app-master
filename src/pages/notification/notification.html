@@ -1,0 +1,71 @@
+<ion-header mode="md" >
+
+  <ion-toolbar mode="md" color="blue">
+    <ion-segment  #segments  mode="md" [(ngModel)]="page" color="danger" calss="font-bold">
+        <ion-segment-button value="0"  (click)="selectedTab(0)">
+            Vote&Match
+        </ion-segment-button>
+        <ion-segment-button value="1"  (click)="selectedTab(1)">
+            Causal Meetup
+        </ion-segment-button>
+        <ion-segment-button value="2"  (click)="selectedTab(2)">
+            Realtionship
+        </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+<ion-content padding>
+ <div id="marginarea"></div>
+
+    <div class="wrapper-xs padder-sm">
+      <ion-slides #slider (ionSlideDidChange)="slideChanged()">
+        <ion-slide>
+          <ion-row align-items-center *ngFor="let userlist of messages" (click)="gotochat(userlist.email)">
+        <ion-col col-auto>
+          <img src="assets/img/1.jpg" class="thumb-md" style="padding: 10px;border-radius: 50%;display: inline-block;width: 64px">
+        </ion-col>
+        <ion-col>
+          <div align="left">
+            <div class="text-lg" style="font-size: 18px;">Ted Wiggins</div>
+            <div class="text-muted" style="  font-size: 16px;">Send you Request</div>
+          </div>
+         
+        </ion-col>
+         <ion-col item-end>
+            <ion-icon name="heart" color="danger"></ion-icon>
+          </ion-col>
+          <div id="marginarea"></div>
+
+      </ion-row>
+        </ion-slide>
+        <ion-slide>
+            <ion-row align-items-center *ngFor="let userlist of messages" (click)="gotochat(userlist.email)">
+        <ion-col col-auto>
+          <img src="assets/img/1.jpg" class="thumb-md" style="padding: 10px;border-radius: 50%;display: inline-block;width: 64px">
+        </ion-col>
+        <ion-col>
+          <div align="left">
+            <div class="text-lg" style="font-size: 18px;">{{userlist.email}}</div>
+            <div class="text-muted" style="  font-size: 16px;">{{userlist.body}}</div>
+          </div>
+        </ion-col>
+      </ion-row>
+        </ion-slide>
+        <ion-slide>
+            <ion-row align-items-center *ngFor="let userlist of messages" (click)="gotochat(userlist.email)">
+        <ion-col col-auto>
+          <img src="assets/img/1.jpg" class="thumb-md" style="padding: 10px;border-radius: 50%;display: inline-block;width: 64px">
+        </ion-col>
+        <ion-col>
+          <div align="left">
+            <div class="text-lg" style="font-size: 18px;">{{userlist.email}}</div>
+            <div class="text-muted" style="  font-size: 16px;">{{userlist.body}}</div>
+          </div>
+        </ion-col>
+      </ion-row>
+        </ion-slide>
+    </ion-slides>
+      
+    </div>
+  
+</ion-content>

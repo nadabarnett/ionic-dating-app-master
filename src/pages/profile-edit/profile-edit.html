@@ -1,0 +1,125 @@
+<ion-header no-border>
+  <ion-navbar color="white">
+    <ion-title>Edit Info</ion-title>
+
+    <ion-buttons end>
+      <button ion-button clear color="danger" (click)="close()">
+        Done
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content class="bg-custom">
+  <div class="profile-images-edit">
+    <div class="profile-image" *ngFor="let image of profileImages; let i = index" (click)="openPhotoPicker(i)">
+      <div [style.backgroundImage]="'url(' + profileImages[i] + ')'" class="div-img img-square r-3x"></div>
+      <button ion-button icon-only clear class="btn-edit" (click)="removeImage(i)" *ngIf="profileImages[i] != ''">
+        <ion-icon name="md-close" color="danger"></ion-icon>
+      </button>
+      <button ion-button icon-only clear class="btn-edit" *ngIf="profileImages[i] == ''">
+        <ion-icon name="md-add-circle" color="danger"></ion-icon>
+      </button>
+    </div>
+  </div>
+  <div id="marginarea"></div>
+
+  <ion-list no-lines>
+    <ion-list-header>
+      ABOUT ME
+    </ion-list-header>
+    <ion-item class="text-muted" text-wrap>
+      <ion-textarea placeholder="Enter a description" value="A UX/UI lover who has a hobby of making UI clones"></ion-textarea>
+    </ion-item>
+    <ion-item>
+      <ion-note item-end>
+        <span class="text-xs">435</span>
+      </ion-note>
+    </ion-item>
+  </ion-list>
+  <div id="marginarea"></div>
+
+  <ion-list>
+    <ion-list-header>
+      CURRENT WORK
+    </ion-list-header>
+    <button ion-item>
+      Front-end dev. UX/UI lover.
+    </button>
+  </ion-list>
+ <div id="marginarea"></div>
+
+  <!--  <ion-list>
+    <ion-list-header>
+      SCHOOL
+    </ion-list-header>
+    <button ion-item>
+      Add school
+    </button>
+  </ion-list> -->
+  <!-- <div id="marginarea"></div>
+
+  <ion-list>
+    <ion-list-header>
+      INSTAGRAM PHOTOS
+    </ion-list-header>
+    <ion-item>
+      <ion-icon name="logo-instagram" color="danger" item-start></ion-icon>
+      @mrhieu
+      <ion-note item-end>
+        <span class="text-xs">DISCONNECT</span>
+      </ion-note>
+    </ion-item>
+  </ion-list>
+  <div id="marginarea"></div>
+ -->
+ <!--  <ion-list>
+    <ion-list-header>
+      SPOTIFY ANTHEM
+    </ion-list-header>
+    <button ion-item>
+      <ion-icon name="ios-radio" color="like" item-start></ion-icon>
+      Shape of you
+      <p>Ed Sheeran</p>
+    </button>
+  </ion-list>
+  <div id="marginarea"></div>
+ -->
+  <!-- <ion-list>
+    <ion-list-header>
+      TOP SPOTIFY ARTIST
+    </ion-list-header>
+    <ion-item>
+      <ion-icon name="ios-radio" color="like" item-start></ion-icon>
+      Connect Spotify
+      <ion-note item-end>
+        <span class="text-xs" ion-text color="danger">CONNECT</span>
+      </ion-note>
+    </ion-item>
+  </ion-list>
+  <div id="marginarea"></div> -->
+
+  <ion-list>
+    <ion-list-header>
+      GENDER
+    </ion-list-header>
+    <button ion-item>
+      Man
+    </button>
+  </ion-list>
+  <div id="marginarea"></div>
+
+  <ion-list>
+    <ion-list-header>CONTROL YOUR PROFILE <span class="label-special">Tinder Plus</span></ion-list-header>
+    <ion-item>
+      <ion-label>Don't Show My Age</ion-label>
+      <ion-toggle color="danger" checked="true"></ion-toggle>
+    </ion-item>
+    <ion-item>
+      <ion-label>Don't Show My Distance</ion-label>
+      <ion-toggle color="danger" checked="true"></ion-toggle>
+    </ion-item>
+  </ion-list>
+
+</ion-content>

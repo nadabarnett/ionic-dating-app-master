@@ -1,0 +1,8 @@
+{
+  "name": "mobileDatingApp",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular",
+  "pro_id": "99fd3cf2"
+}

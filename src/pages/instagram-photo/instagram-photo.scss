@@ -1,0 +1,26 @@
+instagram-photo {
+  .insta-slides .div-img {
+    height: 0;
+    padding-bottom: calc(33.33% - 8px);
+    width: calc(33.33% - 8px);
+    float: left;
+    margin: 4px;
+  }
+
+  .insta-pager {
+    float: right;
+    margin-top: 6px;
+
+    .bullet {
+      width: 8px;
+      height: 8px;
+      border-radius: 999em;
+      background: #eee;
+      float: left;
+      margin-left: 4px;
+      &.active {
+        background: color($colors, danger);
+      }
+    }
+  }
+}

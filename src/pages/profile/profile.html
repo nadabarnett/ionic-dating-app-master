@@ -1,0 +1,116 @@
+<ion-content class="bottom-padding">
+  <div class="header-cover">
+    <div class="slide-pager" layout horizontal center>
+      <div flex class="pager-bullet" *ngFor="let item of slideImages; let i = index" [ngClass]="{active: i == currentSlideIndex}"></div>
+    </div>
+
+    <ion-slides (ionSlideDidChange)="slideChanged()">
+      <ion-slide *ngFor="let item of slideImages; let i = index">
+        <div [style.backgroundImage]="'url(' + item.url + ')'" class="div-img"></div>
+      </ion-slide>
+    </ion-slides>
+    <button ion-button icon-button color="danger" round class="btn-rounded btn-fab" (click)="close()">
+      <ion-icon name="md-arrow-round-down"></ion-icon>
+    </button>
+  </div>
+  <div id="marginarea"></div>
+  <div class="wrapper b-b b-light" id="namearea">
+    <div class="text-xl m-b-sm">
+      <span class="font-bold">Hieu Pham</span>, 29
+    </div>
+    <div class="text-muted l-h text-xs">
+      <ion-icon name="ios-briefcase-outline"></ion-icon>
+      Front-End, UX/UI lover
+      <br>
+      <ion-icon name="ios-pin-outline" class="m-r-xs"></ion-icon>
+      less than a kilometer away
+    </div>
+  </div>
+  <div id="marginarea"></div>
+
+  <div class="wrapper text-muted b-b b-light" id="professionarea">
+    A UX/UI lover who has a hobby of making UI clones
+  </div>
+  <div id="marginarea"></div>
+
+  <div class="wrapper text-muted b-b b-light" id="">
+    <div class="color-black font-bold text-sm m-b">My Anthem</div>
+
+    <ion-row class="no-padder" align-items-center>
+      <ion-col>
+        <div class="m-b-sm">Shape of you</div>
+        <div>
+          <ion-icon name="ios-radio" color="like" class="m-r-sm v-align-middle"></ion-icon><span class="text-sm">Ed Sheeran</span>
+        </div>
+      </ion-col>
+      <ion-col col-auto>
+        <div class="thumb-md">
+          <img src="assets/img/4.jpg" class="r-3x" alt="">
+        </div>
+      </ion-col>
+    </ion-row>
+  </div>
+
+  <ion-list *ngIf="!isMe">
+    <ion-item text-center class="l-s-1x">
+      <div ion-text color="danger" class="text-sm font-bold">
+        RECOMMEND TINDIE
+        <div class="text-xxs">TO A FRIEND</div>
+      </div>
+    </ion-item>
+    <ion-item text-center class="l-s-1x">
+      <div class="text-sm font-bold">
+        REPORT TINDIE
+      </div>
+    </ion-item>
+  </ion-list>
+  <div id="marginarea"></div>
+
+  <div class="wrapper text-muted b-b b-light">
+    <div class="color-black font-bold text-sm m-b">645 Friends For Common Connections</div>
+
+    We compare your Facebook friends with those of your matches to display any common connections.
+  </div>
+
+  <div class="wrapper text-muted b-b b-light">
+    <!-- <instagram-photo></instagram-photo> -->
+  </div>
+  <div id="marginarea"></div>
+
+  <div class="wrapper text-muted b-b b-light">
+    <div class="color-black font-bold text-sm m-b">100 Interests</div>
+
+    <div>
+      <button ion-button outline small color="danger">Uniqlo Singapore</button>
+      <button ion-button outline small color="danger">Uniqlo Singapore</button>
+      <button ion-button outline small color="danger">Uniqlo Singapore</button>
+      <button ion-button outline small color="danger">Uniqlo Singapore</button>
+      <button ion-button outline small color="danger">Uniqlo Singapore</button>
+      <button ion-button outline small color="danger">Uniqlo Singapore</button>
+      <button ion-button outline small color="danger">Uniqlo Singapore</button>
+      <button ion-button outline small color="danger">Uniqlo Singapore</button>
+      <button ion-button outline small color="danger">Uniqlo Singapore</button>
+      <button ion-button outline small color="danger">Uniqlo Singapore</button>
+      <button ion-button outline small color="danger">Uniqlo Singapore</button>
+      <button ion-button outline small color="danger">Uniqlo Singapore</button>
+      <button ion-button outline small color="danger">Uniqlo Singapore</button>
+    </div>
+  </div>
+
+</ion-content>
+
+<div class="bottom-buttons" *ngIf="isMe">
+  <button ion-button color="light" class="btn-default" (click)="edit()">EDIT INFO</button>
+</div>
+
+<div class="bottom-actions bottom-buttons" horizontal layout center center-center *ngIf="!isMe">
+  <button ion-button color="light" class="button-dislike">
+    <ion-icon name="md-close"></ion-icon>
+  </button>
+  <button ion-button color="light" class="button-star">
+    <ion-icon name="md-star"></ion-icon>
+  </button>
+  <button ion-button color="light" class="button-like">
+    <ion-icon name="md-heart"></ion-icon>
+  </button>
+</div>
